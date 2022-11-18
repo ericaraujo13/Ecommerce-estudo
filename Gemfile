@@ -13,6 +13,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4'
 gem 'redis', '~> 4.0'
+gem 'rubocop', '~> 1.39'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.0'
@@ -20,7 +21,13 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -31,6 +38,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'vcr'
 end
-
-gem 'rubocop', '~> 1.39'
