@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+require 'vcr'
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -24,4 +27,8 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+VCR.configure do |config|
+  config.cassette_library_dir = 'fixtures/vcr'
+  config.hook_into :webmock
 end
