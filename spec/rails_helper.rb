@@ -3,6 +3,7 @@
 require 'vcr'
 require 'spec_helper'
 require 'simplecov'
+require 'faker'
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
