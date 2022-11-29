@@ -1,29 +1,64 @@
-<h2>Sign up</h2>
+<% content_for :title do %>
+  Registrar-se
+<% end %>
+<div>
+  <p>Ja tenha uma <%= link_to 'conta',
+                      new_user_session_path,
+                      class: 'text-indigo-500' %>.</p>
+</div>
+<%= form_with model: resource,
+                scope: resource_name,
+                url: user_registration_path,
+                local: true,
+                data: { turbo: false, turbo_frame: :_top },
+                html: { class: 'space-y-6' }  do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class='ml-6'>
+    <div class="flex -mx-3">
+      <div class="w-1/2 px-3 mb-5">
+        <%= f.text_field :name,
+                          autofocus: true,
+                          placeholder: 'Nome',
+                          class: 'w-full -ml-10 text-center pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500' %>
+      </div>
+      <div class="w-1/2 px-3 mb-5">
+        <%= f.text_field :last_name,
+                          autofocus: true,
+                          placeholder: 'Sobrenome',
+                          class: 'w-full -ml-10 text-center pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500' %>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <%= f.phone_field :phone,
+                        autofocus: true,
+                        autocomplete: "phone",
+                        placeholder: 'Digite um telefone',
+                        class: 'w-full -ml-10 text-center pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500' %>
+
+      <%= f.email_field :email,
+                        autofocus: true,
+                        autocomplete: "email",
+                        placeholder: 'Digite um email',
+                        class: 'w-full -ml-10 text-center pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500' %>
+
+    </div>
+    <div class="flex -mx-3 py-3">
+      <div class="w-1/2 px-3 mb-5">
+        <%= f.password_field :password,
+                              autofocus: true,
+                              placeholder: 'Senha',
+                              class: 'w-full -ml-10 text-center pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500' %>
+      </div>
+      <div class="w-1/2 px-3 mb-5">
+        <%= f.password_field :password_confirmation,
+                              autofocus: true,
+                              placeholder: 'Confirme a senha',
+                              class: 'w-full -ml-10 text-center text-sm h-11 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500' %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class='mt-5'>
+    <%= f.submit 'Registrar', class: 'bg-indigo-300 hover:bg-indigo-500 p-3 rounded rounded-lg text-white'  %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
