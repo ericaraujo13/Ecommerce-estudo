@@ -1,14 +1,30 @@
-<div class='py-2'>
-  <h3>Olá</h3>
+<div class="w-full bg-white flex items-center justify-between mt-0 px-6 py-2">
+    <label for="menu-toggle" class="cursor-pointer md:hidden block">
+      <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+          <title>menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+    </label>
+    <input class="hidden" type="checkbox" id="menu-toggle">
+
+    <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+      <nav>
+          <ul class="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+            <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">Home</a></li>
+            <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">Products</a></li>
+            <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">About</a></li>
+          </ul>
+      </nav>
+    </div>
+
+    <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+      <div class="auth flex items-center w-full md:w-full">
+        <% if user_signed_in? %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'bg-red-300 text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-red-300 hover:text-gray-700' %>
+        <% else %>
+          <%= button_to 'Entrar', new_user_session_path, class:"bg-green-400 text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700"%>
+          <%= link_to 'Registrar-se', new_user_registration_path, class:"bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700"%>
+        <% end %>
+      </div>
+    </div>
 </div>
-<% if user_signed_in? %>
-  <h1>Bem vind o Loja do Dev</h1>
-  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'bg-red-300 text-white p-2 rounded rounded-xl hover:bg-red-400' %>
-<% else %>
-  <div>
-  <h2>Você não está logado, por favor registre-se!<%= link_to 'Registrar-se', new_user_registration_path, class:'bg-blue-300 text-white rounded rounded-xl hover:bg-blue-400 p-2'%></h2>
-  </div>
-  <div class='mt-2'>
-  <%= link_to 'Entrar', new_user_session_path, class: 'bg-green-400 text-white p-2 rounded rounded-xl hover:bg-green-500' %>
-  </div>
-<% end %>
