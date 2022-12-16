@@ -20,7 +20,7 @@
     <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
       <div class="auth flex items-center w-full md:w-full">
         <% if user_signed_in? %>
-          <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'bg-red-300 text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-red-300 hover:text-gray-700' %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'bg-red-500 text-black font-semibold p-2 rounded border border-gray-300 mr-4 hover:bg-red-300 hover:text-gray-700' %>
         <% else %>
           <%= button_to 'Entrar', new_user_session_path, class:"bg-green-400 text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700"%>
           <%= link_to 'Registrar-se', new_user_registration_path, class:"bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700"%>
