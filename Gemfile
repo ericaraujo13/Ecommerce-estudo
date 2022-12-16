@@ -45,3 +45,4 @@ group :test do
   gem 'vcr'
   gem 'webdrivers'
 end
+gem "avo"
