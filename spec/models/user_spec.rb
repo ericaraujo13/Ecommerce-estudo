@@ -59,6 +59,7 @@ RSpec.describe User, type: :model do
       user1 = create(:user)
       user2 = build(:user, email: user1.email)
 
+
       expect(user2.valid?).to eq(false)
     end
   end
